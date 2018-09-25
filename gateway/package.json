@@ -1,0 +1,19 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.0.7",
+    "graphql": "^14.0.2",
+    "graphql-tools": "^3.1.1",
+    "lodash.merge": "^4.6.0",
+    "seneca": "^3.7.0"
+  }
+}
