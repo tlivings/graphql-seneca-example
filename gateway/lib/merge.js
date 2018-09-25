@@ -1,4 +1,3 @@
-'use strict';
 
 const LodashMerge = require('lodash.merge');
 const AddEmptyRootTypes = require('./add_empty.js');

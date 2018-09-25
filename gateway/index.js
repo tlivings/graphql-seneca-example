@@ -1,4 +1,3 @@
-'use strict';
 
 const { ApolloServer } = require('apollo-server');
 const Merge = require('./lib/merge');

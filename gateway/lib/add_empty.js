@@ -1,5 +1,3 @@
-'use strict';
-
 /*
 This file is just used to detect if the registered types include any "extend type Query", "extend type Mutation"
 or "extend type Subscription" root type statements, and if so adds "empty" root types so these can be added.

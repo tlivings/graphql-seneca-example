@@ -1,4 +1,3 @@
-'use strict';
 
 const Seneca = require('seneca');
 const DB = require('./db');
