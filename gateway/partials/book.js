@@ -13,15 +13,18 @@ const types = `
         # The book's author.
         author: Author
     }
-    extend type Query {
+`;
+
+const rootTypes = `
+    type Query {
         # Search for a book by id.
         book(id: ID!) : Book
     }
-    extend type Mutation {
+    type Mutation {
         # Create a new book.
         book(name: String!, author_id: ID!) : Book
     }
-`;
+`
 
 const resolvers = {
     Query: {
@@ -41,4 +44,4 @@ const resolvers = {
     }
 };
 
-module.exports = { types, resolvers };
+module.exports = { types, rootTypes, resolvers };

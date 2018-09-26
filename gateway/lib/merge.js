@@ -1,22 +1,22 @@
+'use strict';
 
-const LodashMerge = require('lodash.merge');
-const AddEmptyRootTypes = require('./add_empty.js');
-const GraphQLTools = require('graphql-tools');
+const { mergeSchemas, makeExecutableSchema } = require('graphql-tools');
 
 function merge(partials) {
-    const types = [];
-    const resolvers = [];
+    const schemas = [];
 
     for (const partial of partials) {
-        resolvers.push(partial.resolvers);
-        Array.isArray(partial.types) ? types.push(...partial.types) : types.push(partial.types);
+        schemas.push(makeExecutableSchema({
+            typeDefs: [partial.rootTypes, ...partials.map((partial) => partial.types)],
+            resolvers: partial.resolvers
+        }));
     }
 
-    AddEmptyRootTypes(types, resolvers);
+    const mergedSchema = mergeSchemas({
+        schemas
+    });
 
-    const mergedResolvers = LodashMerge({}, ...resolvers);
-
-    return GraphQLTools.makeExecutableSchema({ typeDefs: types, resolvers: mergedResolvers });
+    return mergedSchema;
 };
 
 module.exports = merge;

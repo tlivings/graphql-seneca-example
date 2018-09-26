@@ -13,11 +13,14 @@ const types = `
         # The author email.
         email: String
     }
-    extend type Query {
+`;
+
+const rootTypes = `
+    type Query {
         # Seach for an author by id.
         author(id: ID!, version: String) : Author
     }
-    extend type Mutation {
+    type Mutation {
         # Create a new book.
         author(name: String!) : Author
     }
@@ -36,4 +39,4 @@ const resolvers = {
     }
 };
 
-module.exports = { types, resolvers };
+module.exports = { types, rootTypes, resolvers };
